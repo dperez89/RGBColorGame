@@ -4,30 +4,47 @@ var squares = document.getElementsByClassName("square");
 var randomColors = [];
 var pickedColor;
 var pickedColorDisplay = document.getElementById("pickedColorDisplay");
+var isColorPicked = false;
 
 setSquareEventListeners(squares);
-randomColors = generateRandomColors();
-pickedColor = selectRandomColor(randomColors);
-pickedColorDisplay.textContent = pickedColor;
+setup();
+
+function setup() {
+    randomColors = generateRandomColors();
+    pickedColor = selectRandomColor(randomColors);
+    pickedColorDisplay.textContent = pickedColor;
+}
 
 function setSquareEventListeners(squares) {
     for (i = 0; i < squares.length; i++) {
         squares[i].addEventListener("click", function() {
-            if (this.style.backgroundColor === bodyBG) {
-            } else {
-                fadeOutSquare(this);
-            }
+            checkGuess(this);
         });
     }
 }
-
+function fadeInSquare(square) {
+    square.style.opacity = 1;
+}
 function fadeOutSquare(square) {
     square.style.opacity = 0;
+}
+function checkGuess(square) {
+    if (square.style.backgroundColor === pickedColor) {
+        for (i = 0; i < squares.length; i++) {
+            fadeOutSquare(squares[i]);
+        }
+        window.setTimeout(setup, 200);
+    } else {
+        fadeOutSquare(square);
+    }
 }
 function generateRandomColors() {
     var colors = [];
     for (i = 0; i < squares.length; i++) {
         colors.push((squares[i].style.backgroundColor = randomBGColor()));
+    }
+    for (j = 0; j < squares.length; j++) {
+        fadeInSquare(squares[j]);
     }
     return colors;
 }
