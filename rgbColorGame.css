@@ -5,6 +5,8 @@ h1 {
     color: white;
 }
 .square {
+    opacity: 1;
+    transition: .2s opacity;
     width: 30%;
     padding-bottom: 30%;
     float: left;
@@ -14,4 +16,8 @@ h1 {
 #container {
     margin: 0 auto;
     max-width: 600px;
+}
+.guessedWrong {
+    background: #232323;
+    transition: all 0.5s;
 }
