@@ -5,6 +5,7 @@ h1 {
     color: white;
     text-align: center;
     transition: .2s background;
+    padding: .5rem;
 }
 #messageDisplay {
     color: white;
@@ -13,12 +14,15 @@ h1 {
 .square {
     opacity: 0;
     transition: .2s all;
-    width: 30%;
-    padding-bottom: 30%;
+    padding-bottom: 20%;
     float: left;
-    margin: 1.66%;
+    margin: .8%;
+    width: 48%;
     border-radius: 10px;
     cursor: pointer;
+}
+.center {
+    margin: 0 auto;
 }
 #container {
     margin: 0 auto;
@@ -27,4 +31,10 @@ h1 {
 .guessedWrong {
     background: #232323;
     transition: all 0.5s;
+}
+
+@media screen and (min-width: 768px) {
+    .square {
+        padding-bottom: 15% !important;
+    }
 }
