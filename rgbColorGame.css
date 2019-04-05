@@ -3,15 +3,22 @@ body {
 }
 h1 {
     color: white;
+    text-align: center;
+    transition: .2s background;
+}
+#messageDisplay {
+    color: white;
+    text-align: center;
 }
 .square {
     opacity: 0;
-    transition: .2s opacity;
+    transition: .2s all;
     width: 30%;
     padding-bottom: 30%;
     float: left;
     margin: 1.66%;
     border-radius: 10px;
+    cursor: pointer;
 }
 #container {
     margin: 0 auto;
